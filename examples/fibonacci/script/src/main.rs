@@ -18,6 +18,7 @@ fn main() {
     // Create a `ProverClient` method.
     let client = ProverClient::builder().cuda().build();
 
+    println!("Creating Fibonacci program");
     // Execute the program using the `ProverClient.execute` method, without generating a proof.
     let (_, report) = client.execute(ELF, &stdin).run().unwrap();
     println!("executed program with {} cycles", report.total_instruction_count());
