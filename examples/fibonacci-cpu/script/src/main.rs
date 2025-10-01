@@ -2,7 +2,7 @@ use sp1_sdk::{include_elf, utils, Prover, ProverClient, SP1ProofWithPublicValues
 use std::time::Instant;
 
 /// The ELF we want to execute inside the zkVM.
-const ELF: &[u8] = include_elf!("fibonacci-program");
+const ELF: &[u8] = include_elf!("fibonacci-program-cpu");
 
 fn main() {
     // Setup logging.
