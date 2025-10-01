@@ -1,4 +1,5 @@
 use sp1_sdk::{include_elf, utils, Prover, ProverClient, SP1ProofWithPublicValues, SP1Stdin};
+use std::time::Instant;
 
 /// The ELF we want to execute inside the zkVM.
 const ELF: &[u8] = include_elf!("fibonacci-program");
@@ -27,10 +28,23 @@ fn main() {
     // Generate the proof for the given program and input.
     let (pk, vk) = client.setup(ELF);
 
-    println!("Generating proof now");
+    println!("Generating proof now 01");
+    let start = Instant::now();
     let mut proof = client.prove(&pk, &stdin).compressed().run().unwrap();
+    let duration = start.elapsed();
 
-    println!("generated proof");
+    println!("Time elapsed: {:?}", duration);
+
+    println!("generated proof in {:?} seconds", duration.as_secs());
+
+    println!("Generating proof now 02");
+    let start = Instant::now();
+    let mut proof = client.prove(&pk, &stdin).compressed().run().unwrap();
+    let duration = start.elapsed();
+
+    println!("Time elapsed: {:?}", duration);
+
+    println!("generated proof in {:?} seconds", duration.as_secs());
 
     // Read and verify the output.
     //
