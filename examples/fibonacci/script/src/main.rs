@@ -15,6 +15,7 @@ fn main() {
     let mut stdin = SP1Stdin::new();
     stdin.write(&n);
 
+    println!("The number is {}", n);
     // Create a `ProverClient` method.
     let client = ProverClient::builder().cuda().build();
 
