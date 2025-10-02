@@ -14,50 +14,21 @@ pub fn main() {
     // Behind the scenes, this compiles down to a system call which handles reading inputs
     // from the prover.
     let n = sp1_zkvm::io::read::<u32>();
-
+    let i = 100;
     // Write n to public input
     sp1_zkvm::io::commit(&n);
 
     // Compute the n'th fibonacci number, using normal Rust code.
     let mut a = 0;
     let mut b = 1;
-    for _ in 0..n {
-        let mut c = a + b;
-        c %= 7919; // Modulus to prevent overflow.
-        a = b;
-        b = c;
+    for _ in 0..i {
+        for _ in 0..n {
+            let mut c = a + b;
+            c %= 7919; // Modulus to prevent overflow.
+            a = b;
+            b = c;
+        }
     }
-    for _ in 0..n {
-        let mut c = a + b;
-        c %= 7919; // Modulus to prevent overflow.
-        a = b;
-        b = c;
-    }
-    for _ in 0..n {
-        let mut c = a + b;
-        c %= 7919; // Modulus to prevent overflow.
-        a = b;
-        b = c;
-    }
-    for _ in 0..n {
-        let mut c = a + b;
-        c %= 7919; // Modulus to prevent overflow.
-        a = b;
-        b = c;
-    }
-    for _ in 0..n {
-        let mut c = a + b;
-        c %= 7919; // Modulus to prevent overflow.
-        a = b;
-        b = c;
-    }
-    for _ in 0..n {
-        let mut c = a + b;
-        c %= 7919; // Modulus to prevent overflow.
-        a = b;
-        b = c;
-    }
-
     // Write the output of the program.
     //
     // Behind the scenes, this also compiles down to a system call which handles writing
