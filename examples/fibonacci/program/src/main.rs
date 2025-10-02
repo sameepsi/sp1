@@ -27,6 +27,36 @@ pub fn main() {
         a = b;
         b = c;
     }
+    for _ in 0..n {
+        let mut c = a + b;
+        c %= 7919; // Modulus to prevent overflow.
+        a = b;
+        b = c;
+    }
+    for _ in 0..n {
+        let mut c = a + b;
+        c %= 7919; // Modulus to prevent overflow.
+        a = b;
+        b = c;
+    }
+    for _ in 0..n {
+        let mut c = a + b;
+        c %= 7919; // Modulus to prevent overflow.
+        a = b;
+        b = c;
+    }
+    for _ in 0..n {
+        let mut c = a + b;
+        c %= 7919; // Modulus to prevent overflow.
+        a = b;
+        b = c;
+    }
+    for _ in 0..n {
+        let mut c = a + b;
+        c %= 7919; // Modulus to prevent overflow.
+        a = b;
+        b = c;
+    }
 
     // Write the output of the program.
     //
