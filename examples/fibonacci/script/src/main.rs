@@ -30,7 +30,7 @@ fn main() {
 
     println!("Generating proof now 01");
     let start = Instant::now();
-    let mut proof = client.prove(&pk, &stdin).compressed().run().unwrap();
+    let mut proof = client.prove(&pk, &stdin).core().run().unwrap();
     let duration = start.elapsed();
 
     println!("Time elapsed: {:?}", duration);
