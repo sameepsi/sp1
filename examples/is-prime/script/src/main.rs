@@ -1,9 +1,11 @@
 //! A program that takes a number `n` as input, and writes if `n` is prime as an output.
 use sp1_sdk::{include_elf, utils, ProverClient, SP1ProofWithPublicValues, SP1Stdin};
+use dotenv::dotenv;
 
 const ELF: &[u8] = include_elf!("is-prime-program");
 
 fn main() {
+    dotenv().ok();
     // Setup a tracer for logging.
     utils::setup_logger();
 
